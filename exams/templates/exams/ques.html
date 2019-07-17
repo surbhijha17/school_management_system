@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br>
+<div class="timer" id ="timer" style=" margin-left: 50%;">
+  <script type="text/javascript">
+    var total_seconds =60*1;
+    var c_minutes = parseInt(total_seconds/60);
+    var c_seconds = parseInt(total_seconds%60);
+    function checkTime(){
+      document.getElementById("timer").innerHTML='Time Left: '+ c_minutes +' min '+ c_seconds +'sec';
+      if(total_seconds<=0){
+        document.getElementById("quiz").submit();
+      }
+      else{
+        total_seconds=total_seconds-1;
+        c_minutes = parseInt(total_seconds/60);
+        c_seconds = parseInt(total_seconds%60);
+        setTimeout("checkTime()",1000);
+      }
+    }
+    setTimeout("checkTime()",1000);
+    function finishpage()
+    {
+      alert("load event detected!");
+      document.getElementById("quiz").submit();
+
+    }
+    window.onbeforeunload=function() {
+        document.getElementById("quiz").submit();
+    }
+
+
+  function popup(mylink, windowname) { 
+    if (! window.focus)return true;
+    var href;
+    if (typeof(mylink) == 'string') href=mylink;
+    else href=mylink.href; 
+    window.open(href, windowname, 'width=400,height=200,scrollbars=yes'); 
+    return false; 
+  }
+
+
+
+
+
+  </script>
+</div>
+<br>
+<br>
+  <form id="quiz" method="post">
+  {% csrf_token %}
+    <ol>
+      {% for i in q %}
+       <li>{{ i.ques|safe }}
+       {{i.quesadditionalpart|safe}}</li>
+      <br>
+
+        {% csrf_token %}
+    <ol type="a"><li><input type="radio" name="{{i.id}}" value="{{i.opt1}}">  {{ i.opt1 }}</li>
+      <br>
+       <li><input type="radio" name="{{i.id}}" value="{{i.opt2}}">{{ i.opt2 }}</li>
+      <br>
+      <li><input type="radio" name="{{i.id}}" value="{{i.opt3}}">{{ i.opt3 }}</li>
+      <br>
+      <li><input type="radio" name="{{i.id}}" value="{{i.opt4}}">{{ i.opt4 }}</li>
+      </ol>
+      {% endfor %}
+    </ol>
+    <input type="submit" name="" value="submit" class="btn ed_btn pull-right ed_orange">
+
+    </form>
+
+{% endblock %}

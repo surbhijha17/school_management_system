@@ -1,0 +1,39 @@
+{% extends 'students/profile_base.html'%}
+{% block page_content %}
+<form method="POST" style="margin-left: 35%;">
+	{% csrf_token %}
+	<label>Subject</label>
+	 <select name="subject">
+
+	 	{% for s in sub %}
+  		<option value="{{s.subject}}">{{ s.subject }}</option>
+ 		{% endfor %}
+	</select>
+	<input type="submit" value="submit">
+</form>
+
+<div class="col-md-9 col-sm-9">
+	<br>
+	<br>
+<table class="table table-striped">
+<tr>
+	<th>Attendance Detail of {{i}} on {{d}}</th>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>Roll No.</td>
+		<td>Present</td>
+    <td>Total</td>
+	</tr>
+<tbody>
+<tr>
+<td>{{s.user.first_name}}</td>
+<td>{{s.roll_no}}</td>
+<td>{{present}}</td>
+<td>{{totalAttendance}}</td>
+</tbody>
+</table>
+</div>
+
+
+{% endblock %}

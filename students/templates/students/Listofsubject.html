@@ -1,0 +1,45 @@
+{% extends 'students/profile_base.html'%}
+{% load custom_tags %}
+{% block page_content %}
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+	<div class="tab-pane" id="profile">
+		<div class="ed_dashboard_inner_tab">
+			<div role="tabpanel">
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs" role="tablist">
+					<li role="presentation" class="active"><a href="#view" aria-controls="view" role="tab" data-toggle="tab">List of Subjects</a></li>
+				</ul>
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane active" id="view">
+					<div class="ed_dashboard_inner_tab">
+
+						<table id="profile_view_settings">
+
+
+
+	<tr>
+		<th>Subject</th>
+		<th> Teacher Name</th>
+
+	</tr>
+<tbody>
+
+{% for p in t %}
+<tr>
+<td>{{p.subject}}</td>
+<td>{{p}}</td>
+
+</tr>
+{% endfor %}
+    </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+{% endblock %}

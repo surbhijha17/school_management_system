@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+{% block content %}
+<!--Breadcrumb start-->
+<div class="ed_pagetitle">
+<div class="ed_img_overlay"></div>
+	<div class="container">
+
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<div class="page_title">
+					<h2>Checkout</h2>
+				</div>
+			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<ul class="breadcrumb">
+					<li><a href="/">home</a></li>
+					<li><i class="fa fa-chevron-left"></i></li>
+					<li><a href="checkout.html">Checkout</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<!--Breadcrumb end-->
+
+<!--checkout start-->
+<div class="ed_graysection ed_toppadder80 ed_bottompadder80">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="woo-cart-table">
+					<div class="row">
+						<form class="checkout woocommerce-checkout" method="post">
+              {% csrf_token %}
+							<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+								<h3 class="checkout-heading">Student Details</h3>
+								<div class="row">
+
+									<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+										<div class="form-group">
+											<label> Name </label>
+											<input type="text" class="form-control" value="{{student.user.first_name}}" readonly="readonly">
+										</div>
+									</div>
+
+									<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+										<div class="form-group">
+											<label>Class</label>
+                       	<input type="text" class="form-control" value="{{student.class_info}}" readonly="readonly">
+
+										</div>
+									</div>
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+										<div class="form-group">
+											<label>Roll No. </label>
+                    	<input type="text" class="form-control" value="{{student.roll_no}}" readonly="readonly">
+
+
+										</div>
+									</div>
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="form-group">
+                      <label>Father's/Guardian Name </label>
+                      <input type="text" class="form-control" value="{{student.guardian}}" readonly="readonly">
+
+
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+										<div class="form-group">
+											<label>Mobile No. </label>
+                    	<input type="text" class="form-control" value="{{student.mobile_no}}" readonly="readonly">
+
+
+										</div>
+									</div>
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+										<div class="form-group">
+											<label>Address Details</label>
+                    	<input type="text" class="form-control" value="{{student.address}}" readonly="readonly">
+
+
+										</div>
+									</div>
+
+                </div>
+              </div>
+
+							<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+								<h3 class="checkout-heading">Payment Details</h3>
+								<div class="row">
+                  {% if admissionfees != 0 %}
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="form-group">
+                      <label> Admission Fee</label>
+                      <input type="text" class="form-control" value="{{admissionfees}}" readonly="readonly">
+                    </div>
+                  </div>
+
+                  {% endif %}
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="form-group">
+                      <label> Monthly Fee</label>
+                      <input type="text" class="form-control" value="{{monthlyfees}}" readonly="readonly">
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="form-group">
+                      <label> Extra Fee</label>
+                      <input type="text" class="form-control" value="{{extrafees}}" readonly="readonly">
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="form-group">
+                      <label> Total Fee</label>
+                      <input type="text" class="form-control" value="{{totalfees}}" readonly="readonly">
+                    </div>
+                  </div>
+
+									<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+										<div class="form-group">
+										<button type="submit" class="btn ed_btn pull-right ed_orange">pay Fee</button>
+										</div>
+									</div>
+								</div>
+              </div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div
+	</div>
+</div>
+<!--checkout end-->
+
+
+{% endblock %}

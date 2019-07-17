@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Invoice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <br>
+    <br>
+    <br>
+      <br>
+    <div class="container">
+      <div class="ed_graysection ed_toppadder80 ed_bottompadder80">
+
+
+
+      Order id :- school{{f.orderid}}
+<br>
+
+      Student:- {{f.student.user.first_name}}
+<br>
+<hr>
+      <table class="table table-striped" style="background:blue;" >
+         <tbody>
+
+                {% if admissionfees != 0 %}
+                <tr>
+      <td>  Admission Fee:- {{admissionfees}}
+        </tr>
+        {% endif %}
+
+        <tr><td colspan="2">Monthly Fee:- {{monthlyfees}}</td></tr>
+
+      <tr><td>  Extra Fee:- {{extrafees}}</td></tr>
+
+        <tr><td>Total Fees:- {{f.amount}}</td></tr>
+
+      <tr><td>  Payment Date:- {{f.paymentdate}}</td></tr>
+
+      <tr><td>  Payment Status:- {{f.paymentstatus}}</td></tr>
+
+    </div>
+
+  </body>
+</html>

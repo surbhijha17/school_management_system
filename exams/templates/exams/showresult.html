@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="ed_graysection ed_toppadder80 ed_bottompadder80">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+
+  <div class="tab-pane" id="profile">
+    <div class="ed_dashboard_inner_tab">
+      <div role="tabpanel">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><a href="#view" aria-controls="view" role="tab" data-toggle="tab">Score Card</a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="view">
+          <div class="ed_dashboard_inner_tab">
+
+    
+    <h3>Total no of question: {{c}}</h3>
+    <h3>Marks Scored : {{result}}/{{total}} </h3>
+    <h3> Rank :{{index}}</h3>
+  
+    <table id="profile_view_settings">
+<tbody>
+      
+   <tr>
+        <th  colspan="4">Question</th>
+        <th  colspan="2">Your Answer </th>
+        <th  colspan="2">Correct Answer</th>
+      </tr>
+      {% for q,i,j in v %}
+      <tr>
+        <td  colspan="4">{{q|safe}}{{q.quesadditionalpart|safe}}</td>
+
+        <td  colspan="2">{{i}}</td>
+        <td colspan="2">{{j}}</td>
+      </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+    
+  
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+{% endblock %}

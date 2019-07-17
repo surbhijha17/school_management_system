@@ -1,0 +1,57 @@
+{% extends 'teachers/profile_base.html'%}
+
+{% block page_content %}
+
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+  <div class="tab-pane" id="profile">
+    <div class="ed_dashboard_inner_tab">
+      <div role="tabpanel">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><a href="#view" aria-controls="view" role="tab" data-toggle="tab">Upload Assignment</a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="view">
+          <div class="ed_dashboard_inner_tab">
+
+  <form method="post"  enctype="multipart/form-data">
+    <table id="profile_view_settings">
+<tbody>
+
+    {% csrf_token %}
+    <tr>
+      <th> Class:</th>
+      <td  ><select class="" name="class_info" style="float:left;">
+
+      {% for i in classes %}
+      <option value="{{i.name}}">{{i.name}}</option>
+      {% endfor %}
+    </select></td>
+    </tr>
+    <tr>
+      <th> Date</th>
+    <td><input type="date" name="duedate" required></td>
+    </tr>
+    <tr>
+      <th>File:</th>
+
+    <td> <input type="file" name="assignment" required></td>
+    </tr>
+  </tbody>
+  </table>
+    <button type="submit" class="btn ed_btn ed_orange">Upload</button>
+  </form>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock %}
+
+
+
+

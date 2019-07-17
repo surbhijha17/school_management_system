@@ -1,0 +1,51 @@
+
+{% extends 'teachers/profile_base.html' %}
+{% block page_content %}
+
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+
+
+    <div class="tab-pane" id="profile">
+      <div class="ed_dashboard_inner_tab">
+        <div role="tabpanel">
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="" aria-controls="view" role="tab" data-toggle="tab">Students of  class {{class_info.name}}</a></li>
+          </ul>
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="view">
+            <div class="ed_dashboard_inner_tab">
+              
+              <table id="profile_view_settings">
+                <tbody>
+                      <tr>
+                        <th>Roll.no</th>
+                        <th>Name</th>
+
+                      </tr>
+                      {% for st in students %}
+                      <tr>
+                      	<td>{{st.roll_no}}</td>
+                        <td> {{st.user.first_name}}</td>
+
+                      </tr>
+
+                     {% endfor %}
+
+                  
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+{% endblock %}

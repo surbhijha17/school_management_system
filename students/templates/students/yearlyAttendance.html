@@ -1,0 +1,81 @@
+{% extends 'students/profile_base.html'%}
+{% block page_content %}
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+	<div class="tab-pane" id="profile">
+		<div class="ed_dashboard_inner_tab">
+			<div role="tabpanel">
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs" role="tablist">
+					<li role="presentation" class=""><a href="{% url 'students:dayAttendance' %}" aria-controls="view" >Daily Attendance Report</a></li>
+					<li role="presentation" class=""><a href="{% url 'students:monthlyAttendance' %}" aria-controls="view" >Monthly Attendance Report</a></li>
+		
+					<li role="presentation" class="active"><a href="{% url 'students:yearlyAttendance' %}" aria-controls="view" >Yearly Attendance Report</a></li>
+		
+				</ul>
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane active" id="view">
+					<div class="ed_dashboard_inner_tab">
+						<form class="ed_tabpersonal" method="post">
+
+
+
+	{% csrf_token %}
+<table style="border:0px;">
+												<tbody>
+													<tr>
+									
+										<td style="border:0px;"><label  >Subject</label></td>
+										<td style="border:0px;"><select name="subject" style="float:left" >
+											{% for s in sub %}
+						  						<option value="{{s.subject}}">{{ s.subject }}</option>
+						 				{% endfor %}
+										</select></td>
+									</tr>
+	<tr>
+									
+										<td style="border:0px;"> <label>Year</label></td>									
+  
+  <td style="border:0px;"><input type="year" name="year"></td>
+</tr>
+ </tbody>
+								</table>
+							
+	<input class="btn ed_btn ed_orange" type="submit" value="submit">
+</div>
+</form>
+
+
+	<br>
+	<br>
+	<table id="profile_view_settings">
+	<tbody>
+<tr>
+	<th colspan="4">Attendance Detail{% if i != None and y != None %} of {{i}} of year {{y}} {% endif %}</th>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>Roll No.</td>
+		<td>Class Attended</td>
+    <td>Total Classes</td>
+	</tr>
+<tbody>
+<tr>
+<td>{{s.user.first_name}}</td>
+<td>{{s.roll_no}}</td>
+<td>{{present}}</td>
+<td>{{yearlyAttendance}}</td>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+{% endblock %}

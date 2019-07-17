@@ -1,0 +1,65 @@
+{% extends 'teachers/profile_base.html'%}
+{% load custom_tags %}
+{% block page_content %}
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+  <div class="tab-pane" id="profile">
+    <div class="ed_dashboard_inner_tab">
+      <div role="tabpanel">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><a href="#view" aria-controls="view" role="tab" data-toggle="tab">Update attendance of class {{c.name}}</a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="view">
+          <div class="ed_dashboard_inner_tab">
+            {% if m != None %}
+              <h1>{{m}}</h1>
+            {% else %}
+            <form class="ed_tabpersonal" method="post">
+              {% csrf_token %}
+              <table id="profile_view_settings">             
+               <tbody>
+                <tr>
+                  <th>Roll</th>
+                  <th>name</th>
+                  <th>status</th>
+                </tr>
+                {% for student in c.student_set.all %}
+                <tr>
+                  <td>{{ student.roll_no}}</td>
+                  <td>{{ student.user.first_name }}</td>
+
+                  {% for a in attendance  %}
+                  {% with a.student|split:"," as attndnc %}
+                  {% with student.roll_no|int_to_str as studntroll %}
+                  {% if studntroll in attndnc %}
+              
+
+            <!-- <td>  <span style="background-color: rgb(163, 228, 163)"></span></td> -->
+                  <td><input type="checkbox" name="present[]" value="{{student.roll_no}}" checked></td>
+
+                  {% else %}
+                  <td><input type="checkbox" name="present[]" value="{{student.roll_no}}"></td>
+                  {% endif %}
+                  {% endwith %}
+                  {% endwith %}
+                
+                  {% endfor %}
+                </tr>
+                {% endfor %}
+   
+              </tbody>
+            </table>
+            <input class="btn ed_btn ed_orange" type="submit" name="Submit" value="Update Attendance">
+          </form>
+          {% endif %}
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

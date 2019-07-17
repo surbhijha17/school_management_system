@@ -1,0 +1,55 @@
+
+{% extends 'teachers/profile_base.html'%}
+
+{% block page_content %}
+
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+  <div class="tab-pane" id="profile">
+    <div class="ed_dashboard_inner_tab">
+      <div role="tabpanel">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><a href="#view" aria-controls="view" role="tab" data-toggle="tab">Uploaded Assignments</a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="view">
+          <div class="ed_dashboard_inner_tab">
+
+            <table id="profile_view_settings">
+<tbody>
+  {% for i in classes %}
+  <tr>
+  <th>Class {{i.name}}</th>
+  <td>
+
+    {% for j in assign %}
+    <tr>
+    {% if j.class_info.name == i.name %}
+    <td> <a href=""{{ j.file.url }}"">{{j.file}}</a></td>
+    <td>Last Date: {{j.duedate}}</td>
+    
+    {% endif %}
+  
+  
+ </tr>
+    {% endfor %}
+    
+  
+  
+  </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+
+{% endblock %}

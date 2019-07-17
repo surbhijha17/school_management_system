@@ -1,0 +1,65 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+<!--Breadcrumb start-->
+<div class="ed_pagetitle">
+<div class="ed_img_overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="page_title">
+          <h2>Teacher</h2>
+        </div>
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <ul class="breadcrumb">
+          <li><a href="/">home</a></li>
+          <li><i class="fa fa-chevron-left"></i></li>
+          <li><a href="{% url 'teachers:profile' %}">{{teachers.user.first_name}}</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Breadcrumb end-->
+<!--single student detail start-->
+<div class="ed_dashboard_wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+        <div class="ed_sidebar_wrapper">
+          <div class="ed_profile_img">
+          <img src="{{ teachers.photo.url }}" alt="Dashboard Image" >
+          </div>
+          <h3>{{teachers.user.first_name}}</h3>
+           <div class="ed_tabs_left">
+            <ul class="nav nav-tabs">
+
+              <li class="active"><a href="{% url 'teachers:profile' %}" >profile</a></li>
+              <li><a href="{% url 'teachers:classes' %}">Classes</a></li>
+              <li><a href="{% url 'attendance:take_attendance' %}">Take Atendance / Update Attendance</a></li>
+              <li><a href="{% url 'teachers:assignment' %}">Upload Assignment</a></li>
+              <li><a href="{% url 'teachers:uploaded_assignment' %}" >Uploaded Assignments </a></li>
+              <li><a href="{% url 'attendance:show_attendance' %}" >Attendance </a></li>
+             
+              </ul>
+          </div>
+        </div>
+      </div>
+
+
+
+
+{% block page_content %}
+
+{% endblock %}
+</div>
+</div>
+</div>
+
+ {% endblock %}
+
+
+
+

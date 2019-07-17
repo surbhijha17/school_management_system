@@ -1,0 +1,89 @@
+ {% extends 'teachers/profile_base.html'%}
+
+{% block page_content %}
+  
+  <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+
+
+    <div class="tab-pane" id="b">
+            <div class="ed_dashboard_inner_tab">
+              <div role="tabpanel">
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+          
+            <li role="presentation" ><a href="#attendance" aria-controls="attendance" role="tab" data-toggle="tab">No. Of Class Taken by You This Month</a></li>
+          </ul>
+       
+
+
+         
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="profile">
+              <div class="ed_inner_dashboard_info">
+                <h2>your profile</h2>
+                <table id="profile_view_settings">
+                  <tbody>
+                    <tr>
+                      <th>Name</th>
+                      <th>Email id</th>
+                      <th>Subject </th>
+                    </tr>
+                    <tr>
+                      <td>{{teachers.user.first_name}}</td>
+                      <td>{{teachers.user.email}}</td>
+                      <td>{{teachers.subject}}</td>
+                    </tr>
+                  </tbody>
+                      
+                </table>
+              </div>
+            </div>
+        
+       
+            <div role="tabpanel" class="tab-pane " id="attendance">
+              <div class="ed_inner_dashboard_info">
+               
+                <table id="profile_view_settings">
+                  <tbody>
+                     <tr>
+                        <th>Class</th>
+                        <th>Number Of Classes</th>
+
+                      </tr>
+                      {% for c in classes %}
+                      {% with forloop.counter as oc %}
+                      {% for t in a %}
+                      {% with forloop.counter as i %}
+                       {% if oc == i %}
+                      <tr>
+                        <td>{{c.name}}</td>
+
+                        <td>{{t}}</td>
+
+                      </tr>
+                       {% endif %}
+                    {% endwith %}
+                    {% endfor %}
+                    {% endwith %}
+
+                      {% endfor %}
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  
+  
+
+
+
+{% endblock %}

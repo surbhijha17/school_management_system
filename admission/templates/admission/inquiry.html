@@ -1,0 +1,69 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+
+    <div class="tab-pane" id="profile">
+      <div class="ed_dashboard_inner_tab">
+        <div role="tabpanel">
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#view" aria-controls="view" role="tab" data-toggle="tab">Admission Enquiry</a></li>
+          </ul>
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="view">
+
+          <div role="tabpanel" class="tab-pane active" id="view">
+          <div class="ed_dashboard_inner_tab">
+
+            <form class="ed_tabpersonal" method="post">
+              {% csrf_token %}
+      
+              <div class="ed_dashboard_inner_tab">
+              
+              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+             <table style="border:0px;">
+                        <tbody>
+                          <tr>
+    	                     <td style="border:0px;">class:</td>
+                           <td style="border:0px;">
+                          	 <select name="class_info" style="float:left;">
+
+                          	 	{% for ct in c %}
+                            		<option value="{{ct.name}}">{{ ct.name }}</option>
+                           		{% endfor %}
+                          	</select>
+                          </td>
+                        </tr>
+                      </tbody>
+                </table>
+              </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+             
+    	         <input class="btn ed_btn ed_orange" type="submit" value="submit">
+             </div>
+              
+            </div>
+          </form>
+
+    {{p.name}}
+    {{p.strength}}
+    {{p.totalfees}}
+    {{p.monthlyfees}}
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+{% endblock %}

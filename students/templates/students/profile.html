@@ -1,0 +1,106 @@
+ {% extends 'students/profile_base.html'%}
+
+{% block page_content %}
+
+	<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+
+
+    <div class="tab-pane" id="profile">
+      <div class="ed_dashboard_inner_tab">
+        <div role="tabpanel">
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#view" aria-controls="view" role="tab" data-toggle="tab">view Detail</a></li>
+          </ul>
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="view">
+            <div class="ed_dashboard_inner_tab">
+              <h2>your profile</h2>
+              <table id="profile_view_settings">
+
+                <tr>
+                  <td>Name</td>
+                  <td>{{s.user.first_name}} {{s.user.last_name}}</td>
+                </tr>
+
+                            <tr>
+                              <td>Class</td>
+                              <td>{{s.class_info.name}}</td>
+                            </tr>
+
+                            <tr>
+
+                              <td>Roll No</td>
+                              <td>{{s.roll_no}}</td>
+                            </tr>
+
+                            <tr>
+                              <td>Gender</td>
+                              <td>{{s.gender}}</td>
+                            </tr>
+
+                            <tr>
+                              <td>DOB</td>
+                              <td>{{s.dob}}</td>
+                            </tr>
+
+                            <tr>
+                              <td>Email</td>
+                              <td>{{s.user.email}}</td>
+                            </tr>
+
+                            <tr>
+                              <td>Mobile No</td>
+                              <td>{{s.mobile_no}}</td>
+                            </tr>
+
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+            </div>
+            <div class="ed_dashboard_inner_tab">
+              <h2>Guardian Details</h2>
+              <table id="profile_view_settings">
+
+                <tr>
+                  <td>Father's Name</td>
+                  <td>{{s.guardian.father}} </td>
+                </tr>
+
+                <tr>
+                  <td>Father's Mobile No</td>
+                  <td>{{s.guardian.fmobile}}</td>
+                </tr>
+
+                <tr>
+                  <td>Father's Email</td>
+                  <td>{{s.guardian.femail}}</td>
+                </tr>
+
+                <tr>
+                  <td>Mother's Name</td>
+                  <td>{{s.guardian.mother}}</td>
+                </tr>
+
+                <tr>
+                  <td>Mother's Mobile No</td>
+                  <td>{{s.guardian.mmobile}}</td>
+                </tr>
+                <tr>
+                  <td>Mother's Email</td>
+                  <td>{{s.guardian.memail}}</td>
+                </tr>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+            </div>
+
+      </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}

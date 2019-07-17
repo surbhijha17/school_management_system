@@ -1,0 +1,30 @@
+{% extends 'students/profile_base.html' %}
+
+{% block page_content %}
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+	<div class="tab-pane" id="profile">
+		<div class="ed_dashboard_inner_tab">
+			<div role="tabpanel">
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs" role="tablist">
+					<li role="presentation" class="active"><a href="#" aria-controls="view" role="tab" data-toggle="tab">Subjects</a></li>
+				</ul>
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane active" id="view">
+					<div class="ed_dashboard_inner_tab">
+
+    <ol>
+      {% for i in e %}
+    <a href="{% url 'exams:AllTopic' i %}"> <li>{{ i.subject }}</li></a>
+      <br>
+      {% endfor %}
+
+    </ol>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+{% endblock %}

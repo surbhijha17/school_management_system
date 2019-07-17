@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title%} My Awesome Cart Tracker{% endblock %}
+{% block content %}
+<br>
+<br>
+<br>
+  <br>
+<div class="container">
+    {{response_dict}}
+    <div class="col my-4">
+
+        <h2>Payment status regarding your order Id {{response_dict.ORDERID}}</h2>
+        {% if response_dict.RESPCODE == '01' %}
+      <h1>  ORDER SUCCESS</h1>
+      <meta http-equiv="refresh" content="5; url={% url 'exams:StartTest' pk %}">
+        {% else %}
+      <h1>  ORDER FAILURE</h1>
+        <meta http-equiv="refresh" content="5; url={% url 'exams:AllSubject' %}">
+        {% endif%}
+
+    </div>
+
+</div>
+{% endblock %}
+{% block js %}
+<script>
+</script>
+{% endblock %}

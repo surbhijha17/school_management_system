@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+  <form class=""  method="post">
+      {% csrf_token %}
+      {{form1}}
+      {{form2}}
+      <input type="submit" name="" value="submit">
+  </form>
+ {% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'students/profile_base.html'%}
+
+{% block page_content %}
+
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+	<div class="tab-pane" id="profile">
+		<div class="ed_dashboard_inner_tab">
+			<div role="tabpanel">
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs" role="tablist">
+					<li role="presentation" class="active"><a href="#view" aria-controls="view" role="tab" data-toggle="tab">Upload Documents</a></li>
+				</ul>
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane active" id="view">
+					<div class="ed_dashboard_inner_tab">
+
+  <form method="post" action="{% url 'students:students_profile' %}" enctype="multipart/form-data">
+    <table id="profile_view_settings">
+<tbody>
+
+    {% csrf_token %}
+    <tr>
+      <th> Marksheet:</th>
+      <td><input type="file" name="marksheet" required></td>
+    </tr>
+    <tr>
+      <th> Address Proof:</th>
+    <td><input type="file" name="address" required></td>
+    </tr>
+    <tr>
+      <th> Identity Proof:</th>
+
+    <td><input type="file" name="identity" required></td>
+    </tr>
+  </tbody>
+  </table>
+    <button type="submit" class="btn ed_btn ed_orange">Upload</button>
+  </form>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock %}

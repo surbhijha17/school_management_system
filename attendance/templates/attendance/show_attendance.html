@@ -1,0 +1,87 @@
+
+{% extends 'teachers/profile_base.html'%}
+{% load custom_tags %}
+{% block page_content %}
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+    <div class="tab-pane" id="profile">
+        <div class="ed_dashboard_inner_tab">
+            <div role="tabpanel">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#" aria-controls="view" >Attendance Report</a></li>
+                   
+        
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="view">
+                    <div class="ed_dashboard_inner_tab">
+                        <form class="ed_tabpersonal" method="post">
+                            {% csrf_token %}
+                                <table style="border:0px;">
+                                    <tbody>
+                                        <tr>
+                                            <td style="border:0px;">Classes:</td>
+                                            <td style="border:0px;">
+                                                
+                                                <select name="class_info" style="float:left;">
+                                                    {% for ct in classes %}
+                                                    <option value="{{ct.name}}">{{ ct.name }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border:0px;">Date:</td>                       <td style="border:0px;"><input type="date" name="date"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            <input class="btn ed_btn ed_orange" type="submit" value="submit">
+                        </div>
+                    </form>
+                    <table id="profile_view_settings">
+    <tbody>
+    <tr>
+    <th colspan="4">Attendance Detail{% if t != None and d != None %} of  class {{t}} on {{d}} {% endif %}</th>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td>Roll No.</td>
+        <td colspan="2">Status</td>
+    </tr>
+
+     {% for student in c.student_set.all %}
+        <tr>
+            <td>{{ student.roll_no}}</td>
+            <td>{{ student.user.first_name }}</td>
+
+
+        {% for a in attendance  %}
+        {% with a.student|split:"," as attndnc %}
+            {% with student.roll_no|int_to_str as studntroll %}
+            {% if studntroll in attndnc %}
+
+              <td>  <span style="background-color: rgb(163, 228, 163)">{{ ' Present ' }}</span></td>
+
+            {% else %}
+           <td>    <span>{{ ' Absent ' }}</span></td>
+
+            {% endif %}
+            {% endwith %}
+            {% endwith %}
+            {% empty %}
+            <td> NO class Taken </td>
+        </tr>
+        {% endfor %}
+        {% endfor %}
+    
+    </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock %}

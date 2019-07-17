@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+  <div class="ed_graysection ed_toppadder80 ed_bottompadder80">
+  	<div class="container">
+<center>
+<h3>Redirecting you to the merchant....</h3>
+<h3>Please do not refresh your page....</h3>
+<form action="https://securegw-stage.paytm.in/theia/processTransaction" method="post" name="paytm">
+    {% for key, value in param_dict.items %}
+    <input type="hidden" name="{{key}}" value="{{value}}">
+    {% endfor %}
+
+</form>
+
+<script>
+document.paytm.submit()
+</script>
+</center>
+</div>
+</div>
+{% endblock %}

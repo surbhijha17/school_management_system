@@ -1,0 +1,34 @@
+/*
+Copyright (c) 2017 Himanshu Softtech.
+------------------------------------------------------------------
+[Main Stylesheet]
+
+Project:	Educo
+Version:	3.0.0
+Assigned to:	Themeforest
+-------------------------------------------------------------------*/
+@import url("fonts.css");
+@import url("bootstrap.css");
+@import url("font-awesome.css");
+@import url("owl.carousel.css");
+@import url("animate.css");
+@import url("style.css");
+@import url("../js/plugins/revel/settings.css");
+.logout:hover{
+ 	text-decoration: none;
+background-color: #167ac6;
+border: 2px solid #fff;
+color: #fff;
+}
+.logout{
+    border:none;  background:white; background: white;
+    background-color: white;
+    font-color: blue;
+    color: blue;
+    background-color: white;
+  
+    padding: 9px 30px;
+    border-radius: 3px;
+   margin-top: 1px;
+
+}

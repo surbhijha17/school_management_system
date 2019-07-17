@@ -1,0 +1,43 @@
+{% extends 'teachers/profile_base.html'%}
+{% load custom_tags %}
+{% block page_content %}
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+  <div class="tab-pane" id="profile">
+    <div class="ed_dashboard_inner_tab">
+      <div role="tabpanel">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><a href="#view" aria-controls="view" role="tab" data-toggle="tab">Take attendance </a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="view">
+          <div class="ed_dashboard_inner_tab">
+            
+         
+              <table id="profile_view_settings">             
+               <tbody>
+                <tr>
+                  <th>Class</th>
+                  <th>Action</th>
+
+                </tr>
+                {% for c in classes %}
+                <tr>
+                  <td>{{c.name}}</td>
+                  <td><a href="{% url 'attendance:add_attendance' c.pk %}">Take Attendance </a> / <a href="{% url 'attendance:update_attendance' c.pk %}">Update Attendance </a></td>
+
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+  
+
+{% endblock %}
