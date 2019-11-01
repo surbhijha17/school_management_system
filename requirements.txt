@@ -68,7 +68,7 @@ parso==0.4.0
 pexpect==4.7.0
 phonenumbers==8.10.9
 pickleshare==0.7.5
-Pillow==6.0.0
+Pillow==6.2.0
 pipreqs==0.4.9
 prometheus-client==0.6.0
 prompt-toolkit==2.0.9
